@@ -46,6 +46,13 @@
       </level>
     </image>
     <!-- 热点 -->
+
+    <hotspot name="spot1" style="hotspot_style" ath="177.199" atv="15.974" onclick="loadscene(scene_inside,null,MERGE,BLEND(1.0, easeInCubic));jscall(krpano.hooks.eyeMode())" />
+    <hotspot name="spot2" style="hotspot_style_anime" ath="327.61605" atv="-3.91918" onclick="jscall(krpano.hooks.pop(1))" />
+    <hotspot name="spot3" style="hotspot_style_anime_4"  ath="16.92924" atv="7.66196"  onclick="jscall(krpano.hooks.pop(2))"  title="旋转三角" />
+    <hotspot name="spot3y" visible="false" style="hotspot_style_anime_4"  ath="16.92924" atv="7.66196"  onclick="jscall(krpano.hooks.pop(2))"  title="无敌小三角" />
+    <hotspot name="spot3x" visible="false" style="hotspot_style_anime_3" ath="16.92924" atv="7.66196" onclick="jscall(krpano.hooks.pop(2))" />
+
   </scene>
   <scene name="scene_inside"  onstart="" thumburl="panos/inside3.tiles/thumb.jpg">
     <view hlookat="-295.54753" vlookat="-6.76344" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="100" fovmax="130" limitview="auto" />
@@ -63,4 +70,5 @@
     </image>
     <hotspot name="spot5" style="hotspot_style_anime_3" ath="-452.06719" atv="-19.36974" onclick="loadscene(scene_hongkong,null,MERGE,BLEND(1.0, easeInCubic));jscall(krpano.hooks.eyeMode())" />
   </scene>
+
 </krpano>

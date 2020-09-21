@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Krpano from 'react-krpano'
+const hotspotImg=require('./assets/images/hotspot_anime_3.png')
 
 export default class App extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export default class App extends Component {
       <div>
         <div className={'panel'}>
           <div className="test">
-            {/* <button onClick={() => {
+            <button onClick={() => {
               window.krpano.set('hotspot[spot3].visible', 'false')
               window.krpano.set('hotspot[spot3y].visible', 'true')
             }}>切换热点标题
@@ -29,11 +30,11 @@ export default class App extends Component {
               window.krpano.set('hotspot[spot3].visible', 'false')
               window.krpano.set('hotspot[spot3x].visible', 'true')
             }}>动态更新热点
-            </button> */}
+            </button>
             <button onClick={() => {window.krpano.hooks.lockView('h')}}>锁定视角
             </button>
-            {/* <button onClick={() => {window.krpano.hooks.unlockView()}}>解锁视角
-            </button> */}
+            <button onClick={() => {window.krpano.hooks.unlockView()}}>解锁视角
+            </button>
             <button onClick={this.addHotpot}>添加热点
             </button>
 
@@ -82,15 +83,12 @@ export default class App extends Component {
     window.krpano.call('loadscene(scene_test2,null,MERGE,BLEND(1.0, easeInCubic))')
   };
 
-  addScene = () =>{
-    
-  }
   addHotpot =() =>{
     var h = window.krpano.get('view.hlookat');
 		var v = window.krpano.get('view.vlookat');
     const hs_name= 'hs' + ((Date.now() + Math.random()) | 0)
     window.krpano.call('addhotspot(' + hs_name + ')');
-    window.krpano.set('hotspot['+hs_name+'].url','http://10.10.2.20:8000/style/hotspot_anime_3.png');
+    window.krpano.set('hotspot['+hs_name+'].url',hotspotImg);
     window.krpano.set('hotspot['+hs_name+'].ath', h);
     window.krpano.set('hotspot['+hs_name+'].atv', v);
     window.krpano.set('hotspot['+hs_name+'].onloaded', "do_crop_animation(128, 128, 60);" );
