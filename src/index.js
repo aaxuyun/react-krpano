@@ -72,7 +72,6 @@ export default class Krpano extends Component {
       passQueryParameters: true,
       onready(krpano) {
         let hooks = Object.assign(that.props.hooks, that.innerHooks)
-        console.log(hooks)
         if (!hooks.ready) hooks.ready = () => that.ready()
         krpano.hooks = hooks
         window.krpano = krpano
