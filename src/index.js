@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import './styles.css'
-import {CSSTransition} from 'react-transition-group'
+import { CSSTransition } from 'react-transition-group'
 
 export default class Krpano extends Component {
   render() {
@@ -19,10 +19,10 @@ export default class Krpano extends Component {
         </CSSTransition>
         <div className={'krpano-panel'}>
           {this.state.groyAble && this.props.groy &&
-          <div className={['krpano-panel-groy', this.state.groy ? 'act' : ''].join(' ')} onClick={() => {
-            this.setState({groy: !this.state.groy})
-            window.krpano.call('switch(plugin[gyro].enabled);')
-          }} />}
+            <div className={['krpano-panel-groy', this.state.groy ? 'act' : ''].join(' ')} onClick={() => {
+              this.setState({ groy: !this.state.groy })
+              window.krpano.call('switch(plugin[gyro].enabled);')
+            }} />}
         </div>
         <div id='krpano' className='krpano-core' />
       </div>
@@ -64,7 +64,7 @@ export default class Krpano extends Component {
 
   init(xml) {
     let that = this
-    let {embedpano} = window
+    let { embedpano } = window
     embedpano({
       xml: xml,
       target: 'krpano',
@@ -126,7 +126,7 @@ export default class Krpano extends Component {
   groy() {
     if (!this.props.groy) window.krpano.call('switch(plugin[gyro].enabled);')
     const handle = () => {
-      this.setState({groyAble: true})
+      this.setState({ groyAble: true })
       window.removeEventListener('deviceorientation', handle)
     }
     window.addEventListener('deviceorientation', handle)
